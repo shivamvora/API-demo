@@ -10,7 +10,7 @@
 
 <body>
 
-
+    <input type="text" id="myin">
 
     <button id="mybtn">fetch it</button>
     <div id="info">
@@ -21,9 +21,11 @@
 
     document.getElementById( "mybtn" ).onclick = () => {
 
+        var val = document.getElementById( "myin" ).value;
+        console.log( val );
 
 
-        fetch( "https://api.openweathermap.org/data/2.5/weather?q=Rajkot&units=metric&appid=6e0d301de90da770007b68b5913ca51c" )
+        fetch( `https://api.openweathermap.org/data/2.5/weather?q=${val}&units=metric&appid=6e0d301de90da770007b68b5913ca51c` )
             .then( data => {
                 return data.json();
             } )
