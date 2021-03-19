@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+
+
+
+    <button id="mybtn">fetch it</button>
+    <div id="info">
+
+    </div>
+</body>
+<script>
+
+    document.getElementById( "mybtn" ).onclick = () => {
+
+
+
+        fetch( "https://api.openweathermap.org/data/2.5/weather?q=Rajkot&units=metric&appid=6e0d301de90da770007b68b5913ca51c" )
+            .then( data => {
+                return data.json();
+            } )
+            .then( data2 => {
+                // console.log( data2.name );
+                // console.log( data2.main.temp );
+                // console.log( data2.main.weather[0].description );
+                document.getElementById( "info" ).innerHTML = `
+                
+            <ul>
+                <li>City :  ${data2.name}</li>
+                <li>Temp in C : ${data2.main.temp}</li>
+                
+                
+                
+            </ul>
+        
+                    
+                `;
+            } )
+
+
+
+
+    }
+</script>
+
+</html>
